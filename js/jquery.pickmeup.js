@@ -81,6 +81,7 @@
 		show			: function () {return true;},
 		hide			: function () {return true;},
 		fill			: function () {return true;},
+		force_position  : false,
 		locale			: {
 			days		: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
 			daysShort	: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -755,17 +756,19 @@
 						top += this.offsetHeight;
 						break;
 				}
-				if (top + pickmeup.offsetHeight > viewport.t + viewport.h) {
-					top = pos.top  - pickmeup[0].offsetHeight;
-				}
-				if (top < viewport.t) {
-					top = pos.top + this.offsetHeight + pickmeup[0].offsetHeight;
-				}
-				if (left + pickmeup.offsetWidth > viewport.l + viewport.w) {
-					left = pos.left - pickmeup[0].offsetWidth;
-				}
-				if (left < viewport.l) {
-					left = pos.left + this.offsetWidth
+				if (!options.force_position) {
+					if (top + pickmeup.offsetHeight > viewport.t + viewport.h) {
+						top = pos.top  - pickmeup[0].offsetHeight;
+					}
+					if (top < viewport.t) {
+						top = pos.top + this.offsetHeight + pickmeup[0].offsetHeight;
+					}
+					if (left + pickmeup.offsetWidth > viewport.l + viewport.w) {
+						left = pos.left - pickmeup[0].offsetWidth;
+					}
+					if (left < viewport.l) {
+						left = pos.left + this.offsetWidth
+					}
 				}
 				pickmeup.css({
 					display	: 'inline-block',
