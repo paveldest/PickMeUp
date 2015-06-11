@@ -756,13 +756,13 @@
 						break;
 				}
 				if (top + pickmeup.offsetHeight > viewport.t + viewport.h) {
-					top = pos.top  - pickmeup.offsetHeight;
+					top = pos.top  - pickmeup[0].offsetHeight;
 				}
 				if (top < viewport.t) {
-					top = pos.top + this.offsetHeight + pickmeup.offsetHeight;
+					top = pos.top + this.offsetHeight + pickmeup[0].offsetHeight;
 				}
 				if (left + pickmeup.offsetWidth > viewport.l + viewport.w) {
-					left = pos.left - pickmeup.offsetWidth;
+					left = pos.left - pickmeup[0].offsetWidth;
 				}
 				if (left < viewport.l) {
 					left = pos.left + this.offsetWidth
